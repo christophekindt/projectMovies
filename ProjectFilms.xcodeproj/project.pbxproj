@@ -8,12 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		E747D93A1C16DA0B003C1012 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E747D9391C16DA0B003C1012 /* AppDelegate.swift */; };
-		E747D93C1C16DA0B003C1012 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E747D93B1C16DA0B003C1012 /* FirstViewController.swift */; };
-		E747D93E1C16DA0B003C1012 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E747D93D1C16DA0B003C1012 /* SecondViewController.swift */; };
 		E747D9411C16DA0B003C1012 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E747D93F1C16DA0B003C1012 /* Main.storyboard */; };
 		E747D9431C16DA0B003C1012 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E747D9421C16DA0B003C1012 /* Assets.xcassets */; };
 		E747D9461C16DA0B003C1012 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E747D9441C16DA0B003C1012 /* LaunchScreen.storyboard */; };
 		E747D9511C16DA0B003C1012 /* ProjectFilmsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E747D9501C16DA0B003C1012 /* ProjectFilmsTests.swift */; };
+		E747D95E1C16E7ED003C1012 /* TopMoviesViewControllerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E747D95D1C16E7ED003C1012 /* TopMoviesViewControllerTableViewController.swift */; };
+		E747D9601C16E816003C1012 /* MovieDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E747D95F1C16E816003C1012 /* MovieDetailsViewController.swift */; };
+		E747D9621C16EB05003C1012 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = E747D9611C16EB05003C1012 /* Movie.swift */; };
+		E747D9641C16EB23003C1012 /* MovieService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E747D9631C16EB23003C1012 /* MovieService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,8 +31,6 @@
 /* Begin PBXFileReference section */
 		E747D9361C16DA0B003C1012 /* ProjectFilms.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProjectFilms.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E747D9391C16DA0B003C1012 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E747D93B1C16DA0B003C1012 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		E747D93D1C16DA0B003C1012 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		E747D9401C16DA0B003C1012 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E747D9421C16DA0B003C1012 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E747D9451C16DA0B003C1012 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -38,6 +38,10 @@
 		E747D94C1C16DA0B003C1012 /* ProjectFilmsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ProjectFilmsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E747D9501C16DA0B003C1012 /* ProjectFilmsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectFilmsTests.swift; sourceTree = "<group>"; };
 		E747D9521C16DA0B003C1012 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E747D95D1C16E7ED003C1012 /* TopMoviesViewControllerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopMoviesViewControllerTableViewController.swift; sourceTree = "<group>"; };
+		E747D95F1C16E816003C1012 /* MovieDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieDetailsViewController.swift; sourceTree = "<group>"; };
+		E747D9611C16EB05003C1012 /* Movie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
+		E747D9631C16EB23003C1012 /* MovieService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,12 +84,14 @@
 			isa = PBXGroup;
 			children = (
 				E747D9391C16DA0B003C1012 /* AppDelegate.swift */,
-				E747D93B1C16DA0B003C1012 /* FirstViewController.swift */,
-				E747D93D1C16DA0B003C1012 /* SecondViewController.swift */,
+				E747D95D1C16E7ED003C1012 /* TopMoviesViewControllerTableViewController.swift */,
+				E747D95F1C16E816003C1012 /* MovieDetailsViewController.swift */,
 				E747D93F1C16DA0B003C1012 /* Main.storyboard */,
 				E747D9421C16DA0B003C1012 /* Assets.xcassets */,
 				E747D9441C16DA0B003C1012 /* LaunchScreen.storyboard */,
 				E747D9471C16DA0B003C1012 /* Info.plist */,
+				E747D9611C16EB05003C1012 /* Movie.swift */,
+				E747D9631C16EB23003C1012 /* MovieService.swift */,
 			);
 			path = ProjectFilms;
 			sourceTree = "<group>";
@@ -200,9 +206,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E747D93E1C16DA0B003C1012 /* SecondViewController.swift in Sources */,
 				E747D93A1C16DA0B003C1012 /* AppDelegate.swift in Sources */,
-				E747D93C1C16DA0B003C1012 /* FirstViewController.swift in Sources */,
+				E747D95E1C16E7ED003C1012 /* TopMoviesViewControllerTableViewController.swift in Sources */,
+				E747D9621C16EB05003C1012 /* Movie.swift in Sources */,
+				E747D9601C16E816003C1012 /* MovieDetailsViewController.swift in Sources */,
+				E747D9641C16EB23003C1012 /* MovieService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
