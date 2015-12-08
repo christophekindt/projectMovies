@@ -34,6 +34,7 @@ class TopMoviesViewControllerTableViewController: UITableViewController {
                 dispatch_async(dispatch_get_main_queue(), {
                     () -> Void in
                     //do something with the things you've received from the api
+                    self.tableView.reloadData()
                 })
             }
         })
@@ -48,7 +49,7 @@ class TopMoviesViewControllerTableViewController: UITableViewController {
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
