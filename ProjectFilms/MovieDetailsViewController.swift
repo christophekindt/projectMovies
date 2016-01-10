@@ -14,8 +14,9 @@ class MovieDetailsViewController: UIViewController {
     @IBOutlet weak var ratingStars: CosmosView!
     @IBOutlet weak var posterImage: UIImageView!
     @IBOutlet weak var releasedateLabel: UILabel!
-    @IBOutlet weak var overviewText: UITextView!
+    //@IBOutlet weak var overviewText: UITextView!
     
+    @IBOutlet weak var overviewText: UILabel!
     var movie: Movie?
     
     override func viewDidLoad() {

@@ -1,0 +1,11 @@
+version: "Apple Swift version 2.1.1 (swiftlang-700.1.101.15 clang-700.1.81)"
+options: "7c864c07d9444176ec9689b99806c73e"
+build_time: [505743065, 590899000]
+inputs:
+  "/Users/hannesvandenberghe/projectMovies/ProjectFilms/SearchViewController.swift": [505741520, 0]
+  "/Users/hannesvandenberghe/projectMovies/ProjectFilms/MovieService.swift": [505741520, 0]
+  "/Users/hannesvandenberghe/projectMovies/ProjectFilms/MovieDetailsViewController.swift": [505743059, 0]
+  "/Users/hannesvandenberghe/projectMovies/ProjectFilms/AppDelegate.swift": [505741520, 0]
+  "/Users/hannesvandenberghe/projectMovies/ProjectFilms/CosmosDistrib.swift": [505741520, 0]
+  "/Users/hannesvandenberghe/projectMovies/ProjectFilms/Movie.swift": [505741520, 0]
+  "/Users/hannesvandenberghe/projectMovies/ProjectFilms/TopMoviesViewControllerTableViewController.swift": [505741520, 0]
