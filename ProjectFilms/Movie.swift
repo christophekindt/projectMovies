@@ -15,6 +15,9 @@ struct Movie {
     var overview: String?
     var tagline : String?
     var posterPath: String?
+    var voteAverage: Double?
+    var releaseDate: String?
+    var imgPath: String?
     var image: UIImage?
 }
 
@@ -30,22 +33,48 @@ class MovieHandler {
                 object.overview = (anyObject[index]["overview"] as AnyObject? as? String)
                 object.tagline = (anyObject[index]["tagline"] as AnyObject? as? String)
                 object.posterPath = (anyObject[index]["poster_path"] as AnyObject? as? String)
-                print(object.title)
+                object.voteAverage = (anyObject[index]["vote_average"] as AnyObject? as? Double)
+                object.releaseDate = (anyObject[index]["release_date"] as AnyObject? as? String)
+                object.imgPath = (anyObject[index]["poster_path"] as AnyObject? as? String?)!
+                let url = NSURL(string: "http://image.tmdb.org/t/p/w185//" + object.imgPath!)
+                let data = NSData(contentsOfURL: url!) //make sure your image in this url does exist, otherwise unwrap in a if let check
+                object.image = UIImage(data: data!)
                 list.append(object)
             }
         }
         return list
     }
     
-    static func parseJsonImage(anyObj : AnyObject) -> [String]{
-        var list = [String]()
+    func getDataFromUrl(url:NSURL, completion: ((data: NSData?, response: NSURLResponse?, error: NSError? ) -> Void)) {
+        NSURLSession.sharedSession().dataTaskWithURL(url) { (data, response, error) in
+            completion(data: data, response: response, error: error)
+            }.resume()
+    }
+    
+    func downloadImage(url: NSURL) -> UIImage{
+        print("Download Started")
+        print("lastPathComponent: " + (url.lastPathComponent ?? ""))
+        var image = UIImage()
+        getDataFromUrl(url) { (data, response, error)  in
+            dispatch_async(dispatch_get_main_queue()) { () -> Void in
+                guard let data = data where error == nil else { return }
+                print(response?.suggestedFilename ?? "")
+                print("Download Finished")
+                image = UIImage(data: data)!
+            }
+        }
+        return image
+    }
+    
+    static func parseJsonImage(anyObj : AnyObject) -> String{
+        var imgpath = String()
         if anyObj is [AnyObject]{
             for var index = 0; index < anyObj.count ; ++index {
                 //file_path
                 let path = (anyObj[index]["file_path"] as AnyObject? as? String?)
-                list.append(path!!)
+                imgpath = path!!
             }
         }
-        return list
+        return imgpath
     }
 }

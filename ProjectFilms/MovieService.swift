@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import UIKit
+
 private let _SharedInstance = MovieService()
 
 class MovieService : NSObject {
@@ -45,30 +47,5 @@ class MovieService : NSObject {
             }
         })
         task.resume()
-    }
-    
-    
-    func fetchImageFromMovie(movieID: Int, completion: (error : NSError?, data: AnyObject?) ->()){
-        
-        let urlString = baseURL + "movie/\(movieID)/images?api_key=58307881d9d420ad0d98ae233a8f249a"
-        let url = NSURL(string: urlString)
-        let request = NSMutableURLRequest(URL: url!)
-        request.HTTPMethod = "GET"
-        session = NSURLSession(configuration: configuration)
-        
-        let task = session!.dataTaskWithRequest(request,completionHandler: {
-            (data, response, error) -> Void in
-            do {
-                if let data = data, let json: AnyObject? = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0)) {
-                    completion(error: nil, data: json!)
-                } else {
-                    completion(error: error, data: nil)
-                }
-            } catch {
-                print("Something went wrong")
-            }
-        })
-        task.resume()
-        
     }
 }

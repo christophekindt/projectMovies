@@ -10,6 +10,7 @@ import UIKit
 
 class TopMoviesViewControllerTableViewController: UITableViewController {
     private var movies = [Movie]()
+    private var imageString = String()
     
     @IBOutlet var movieTableView: UITableView!
     
@@ -24,6 +25,26 @@ class TopMoviesViewControllerTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
+    
+    /*func openImage(sender: AnyObject) -> UIImage{
+        var image: UIImage = UIImage()
+        MovieService.sharedInstance.fetchImageFromMovie(550, completion: {
+            (error, data) -> () in
+            if let json_data = data?["backdrops"]{
+                self.imageString = MovieHandler.parseJsonImage(json_data!)
+                dispatch_async(dispatch_get_main_queue(), {
+                    () -> Void in
+                    //do something with the things you've received from the api
+                    //print(self.imageString[0])
+                    
+                        let url = NSURL(string:"http://image.tmdb.org/t/p/w500/\(self.imageString)")
+                        let dataImg = NSData(contentsOfURL: url!)
+                        image = UIImage(data: dataImg!)!
+                })
+            }
+        })
+        return image
+    }*/
     
     func _loadMovies(){
         MovieService.sharedInstance.fetch({
@@ -61,9 +82,29 @@ class TopMoviesViewControllerTableViewController: UITableViewController {
         let cell = movieTableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
         let movie = movies[indexPath.row]
         cell.textLabel!.text = movie.title
-
+        cell.imageView!.image = movie.image
+        //print(openImage(movie.id!).description)
         return cell
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let identifier = segue.identifier{
+            switch identifier{
+            case "showMovieDetail":
+                let movieDetailsViewController = segue.destinationViewController as! MovieDetailsViewController
+                if let indexPath = self.tableView.indexPathForCell(sender as! UITableViewCell){
+                    movieDetailsViewController.movie = movieAtIndexPath(indexPath)
+                }
+            default:break
+            }
+        }
+    }
+    
+    func movieAtIndexPath(indexPath: NSIndexPath) -> Movie{
+        let movie = movies[indexPath.row]
+        return movie
+    }
+
     
 
     /*

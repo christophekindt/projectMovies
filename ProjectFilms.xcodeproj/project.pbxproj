@@ -16,6 +16,8 @@
 		E747D9601C16E816003C1012 /* MovieDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E747D95F1C16E816003C1012 /* MovieDetailsViewController.swift */; };
 		E747D9621C16EB05003C1012 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = E747D9611C16EB05003C1012 /* Movie.swift */; };
 		E747D9641C16EB23003C1012 /* MovieService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E747D9631C16EB23003C1012 /* MovieService.swift */; };
+		E7C3E0BB1C4101270063439F /* CosmosDistrib.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7C3E0BA1C4101270063439F /* CosmosDistrib.swift */; };
+		E7C3E0BF1C41425E0063439F /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7C3E0BE1C41425E0063439F /* SearchViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +44,8 @@
 		E747D95F1C16E816003C1012 /* MovieDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieDetailsViewController.swift; sourceTree = "<group>"; };
 		E747D9611C16EB05003C1012 /* Movie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		E747D9631C16EB23003C1012 /* MovieService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieService.swift; sourceTree = "<group>"; };
+		E7C3E0BA1C4101270063439F /* CosmosDistrib.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CosmosDistrib.swift; sourceTree = "<group>"; };
+		E7C3E0BE1C41425E0063439F /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +96,8 @@
 				E747D9471C16DA0B003C1012 /* Info.plist */,
 				E747D9611C16EB05003C1012 /* Movie.swift */,
 				E747D9631C16EB23003C1012 /* MovieService.swift */,
+				E7C3E0BA1C4101270063439F /* CosmosDistrib.swift */,
+				E7C3E0BE1C41425E0063439F /* SearchViewController.swift */,
 			);
 			path = ProjectFilms;
 			sourceTree = "<group>";
@@ -207,10 +213,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				E747D93A1C16DA0B003C1012 /* AppDelegate.swift in Sources */,
+				E7C3E0BF1C41425E0063439F /* SearchViewController.swift in Sources */,
 				E747D95E1C16E7ED003C1012 /* TopMoviesViewControllerTableViewController.swift in Sources */,
 				E747D9621C16EB05003C1012 /* Movie.swift in Sources */,
 				E747D9601C16E816003C1012 /* MovieDetailsViewController.swift in Sources */,
 				E747D9641C16EB23003C1012 /* MovieService.swift in Sources */,
+				E7C3E0BB1C4101270063439F /* CosmosDistrib.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -398,6 +406,7 @@
 				E747D9571C16DA0B003C1012 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E747D9581C16DA0B003C1012 /* Build configuration list for PBXNativeTarget "ProjectFilmsTests" */ = {
 			isa = XCConfigurationList;
@@ -406,6 +415,7 @@
 				E747D95A1C16DA0B003C1012 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
