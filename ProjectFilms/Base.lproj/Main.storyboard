@@ -104,7 +104,7 @@
             </objects>
             <point key="canvasLocation" x="1269" y="0.0"/>
         </scene>
-        <!--Movie Details View Controller-->
+        <!--Top movies-->
         <scene sceneID="nSj-Ei-HWv">
             <objects>
                 <viewController id="DPm-c3-Ute" customClass="MovieDetailsViewController" customModule="ProjectFilms" customModuleProvider="target" sceneMemberID="viewController">
@@ -195,7 +195,7 @@
                             <constraint firstItem="05J-ws-6bP" firstAttribute="leading" secondItem="ESG-sA-ycm" secondAttribute="leading" id="I2s-vN-XOi"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="uSS-yt-qGg"/>
+                    <navigationItem key="navigationItem" title="Top movies" id="uSS-yt-qGg"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="overviewText" destination="jl0-bT-iyS" id="cT2-xq-lY7"/>
@@ -243,7 +243,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="DPm-c3-Ute" kind="push" identifier="showDetailSearch" id="h4C-ec-Jxd"/>
+                                    <segue destination="DPm-c3-Ute" kind="push" identifier="showDetailSearch" id="urS-iB-P7T"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -312,6 +312,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="XDc-bN-sug"/>
+        <segue reference="urS-iB-P7T"/>
     </inferredMetricsTieBreakers>
 </document>

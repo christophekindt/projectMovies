@@ -90,6 +90,7 @@
 				E747D9391C16DA0B003C1012 /* AppDelegate.swift */,
 				E747D95D1C16E7ED003C1012 /* TopMoviesViewControllerTableViewController.swift */,
 				E747D95F1C16E816003C1012 /* MovieDetailsViewController.swift */,
+				E7C3E0BE1C41425E0063439F /* SearchViewController.swift */,
 				E747D93F1C16DA0B003C1012 /* Main.storyboard */,
 				E747D9421C16DA0B003C1012 /* Assets.xcassets */,
 				E747D9441C16DA0B003C1012 /* LaunchScreen.storyboard */,
@@ -97,7 +98,6 @@
 				E747D9611C16EB05003C1012 /* Movie.swift */,
 				E747D9631C16EB23003C1012 /* MovieService.swift */,
 				E7C3E0BA1C4101270063439F /* CosmosDistrib.swift */,
-				E7C3E0BE1C41425E0063439F /* SearchViewController.swift */,
 			);
 			path = ProjectFilms;
 			sourceTree = "<group>";
