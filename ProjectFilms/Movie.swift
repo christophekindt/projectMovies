@@ -35,10 +35,12 @@ class MovieHandler {
                 object.posterPath = (anyObject[index]["poster_path"] as AnyObject? as? String)
                 object.voteAverage = (anyObject[index]["vote_average"] as AnyObject? as? Double)
                 object.releaseDate = (anyObject[index]["release_date"] as AnyObject? as? String)
-                object.imgPath = (anyObject[index]["poster_path"] as AnyObject? as? String?)!
-                let url = NSURL(string: "http://image.tmdb.org/t/p/w185//" + object.imgPath!)
-                let data = NSData(contentsOfURL: url!) //make sure your image in this url does exist, otherwise unwrap in a if let check
-                object.image = UIImage(data: data!)
+                object.imgPath = (anyObject[index]["poster_path"] as AnyObject? as? String)
+                if(object.imgPath != nil){
+                    let url = NSURL(string: "http://image.tmdb.org/t/p/w185//" + object.imgPath!)
+                    let data = NSData(contentsOfURL: url!)
+                    object.image = UIImage(data: data!)
+                }
                 list.append(object)
             }
         }
@@ -51,7 +53,7 @@ class MovieHandler {
             }.resume()
     }
     
-    func downloadImage(url: NSURL) -> UIImage{
+    /*func downloadImage(url: NSURL) -> UIImage{
         print("Download Started")
         print("lastPathComponent: " + (url.lastPathComponent ?? ""))
         var image = UIImage()
@@ -64,9 +66,9 @@ class MovieHandler {
             }
         }
         return image
-    }
+    }*/
     
-    static func parseJsonImage(anyObj : AnyObject) -> String{
+    /*static func parseJsonImage(anyObj : AnyObject) -> String{
         var imgpath = String()
         if anyObj is [AnyObject]{
             for var index = 0; index < anyObj.count ; ++index {
@@ -76,5 +78,5 @@ class MovieHandler {
             }
         }
         return imgpath
-    }
+    }*/
 }

@@ -47,7 +47,7 @@ class TopMoviesViewControllerTableViewController: UITableViewController {
     }*/
     
     func _loadMovies(){
-        MovieService.sharedInstance.fetch({
+        MovieService.sharedInstance.fetchTopMovies({
             (error, data) -> () in
             if let json_data = data?["results"] {
                 //print(MovieHandler.parseJSon(json_data!))
