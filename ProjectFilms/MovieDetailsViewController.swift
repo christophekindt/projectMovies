@@ -21,9 +21,9 @@ class MovieDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        print(Realm.Configuration.defaultConfiguration.path!)
         titleLabel.text = movie?.title
-        ratingStars.rating = (movie?.voteAverage)!
+        //ratingStars.rating = (movie?.voteAverage)!
         ratingStars.settings.fillMode = .Precise
         ratingStars.settings.updateOnTouch = false
         overviewText.text = movie?.overview
@@ -34,12 +34,20 @@ class MovieDetailsViewController: UIViewController {
     
     @IBAction func addFavoriteMovieButtonPressed(sender: AnyObject) {
         
-        saveMovie()
-        //Source: http://www.ioscreator.com/tutorials/display-an-alert-view-in-ios8-with-swift
-        let alertController = UIAlertController(title: "Movie added", message: "The movie was succesfully added to your favorites.", preferredStyle: UIAlertControllerStyle.Alert)
-        alertController.addAction(UIAlertAction(title:"Dismiss",style: UIAlertActionStyle.Default, handler:nil))
-        self.presentViewController(alertController,animated: true, completion:nil)
-        self.navigationController?.popToRootViewControllerAnimated(true)
+        if saveMovie(){
+            //Source: http://www.ioscreator.com/tutorials/display-an-alert-view-in-ios8-with-swift
+            let alertController = UIAlertController(title: "Movie added", message: "The movie was succesfully added to your favorites.", preferredStyle: UIAlertControllerStyle.Alert)
+            alertController.addAction(UIAlertAction(title:"Dismiss",style: UIAlertActionStyle.Default, handler:nil))
+            self.presentViewController(alertController,animated: true, completion:nil)
+            self.navigationController?.popToRootViewControllerAnimated(true)
+        } else{
+            //Source: http://www.ioscreator.com/tutorials/display-an-alert-view-in-ios8-with-swift
+            let alertController = UIAlertController(title: "Movie already in favorites", message: "The movie is already in your favorites list.", preferredStyle: UIAlertControllerStyle.Alert)
+            alertController.addAction(UIAlertAction(title:"Dismiss",style: UIAlertActionStyle.Default, handler:nil))
+            self.presentViewController(alertController,animated: true, completion:nil)
+            self.navigationController?.popToRootViewControllerAnimated(true)
+        }
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -47,7 +55,18 @@ class MovieDetailsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func saveMovie(){
+    func saveMovie() -> Bool{
+        let realm = try! Realm()
+        let movies = realm.objects(MovieItem)
+        var result = false
+        print(movies)
+        
+        for currentMovie in movies{
+            if (currentMovie.id == movie!.id){
+                return result
+            }
+        }
+        
         let newMovie = MovieItem()
         newMovie.id = movie?.id
         newMovie.tagline = movie?.tagline
@@ -55,12 +74,12 @@ class MovieDetailsViewController: UIViewController {
         newMovie.voteAverage = movie?.voteAverage
         newMovie.overview = movie?.overview
         newMovie.releaseDate = movie?.releaseDate
-        newMovie.posterPath = movie?.posterPath
-        newMovie.image = movie?.image
+        newMovie.imgPath = movie?.imgPath
         
-        let realm = try! Realm()
         try! realm.write {
             realm.add(newMovie)
         }
+        result = true
+        return result
     }
 }

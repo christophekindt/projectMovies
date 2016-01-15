@@ -63,7 +63,6 @@ class TopMoviesViewControllerTableViewController: UITableViewController {
         let movie = movies[indexPath.row]
         cell.textLabel!.text = movie.title
         cell.imageView!.image = movie.image
-        //print(openImage(movie.id!).description)
         return cell
     }
     

@@ -45,6 +45,7 @@ class SearchViewController: UITableViewController{
     func searchDisplayController(controller: UISearchController, shouldReloadTableForSearchString searchString: String?)  -> Bool {
         self.tableView.reloadData()
         _loadMovies(searchDisplayController!.searchBar.text!)
+        _loadMovies(searchString!)
         return true
     }
     
@@ -69,19 +70,20 @@ class SearchViewController: UITableViewController{
     }
     
     func movieAtIndexPath(indexPath: NSIndexPath) -> Movie{
+        searchTableView.reloadData()
         let movie = movies[indexPath.row]
         return movie
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        self.searchDisplayController?.searchBar.text = nil
+        //self.searchDisplayController?.searchBar.text = nil
         if let identifier = segue.identifier{
             switch identifier{
             case "showDetailSearch":
-                print(sender.self)
+                //print(sender.self)
                 let movieDetailsVC = segue.destinationViewController as! MovieDetailsViewController
                 let cell = sender as! UITableViewCell
-                if let indexPath = self.tableView.indexPathForRowAtPoint(cell.center){
+                if let indexPath = self.searchTableView.indexPathForRowAtPoint(cell.center){
                     movieDetailsVC.movie = movieAtIndexPath(indexPath)
                 }
                 

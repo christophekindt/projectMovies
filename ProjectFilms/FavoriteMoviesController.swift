@@ -12,7 +12,7 @@ import RealmSwift
 class FavoriteMoviesController: UITableViewController {
     @IBOutlet var favoritesTableView: UITableView!
     
-    var movies: Results<Movie>!
+    var movies: Results<MovieItem>!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +24,7 @@ class FavoriteMoviesController: UITableViewController {
     }
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = favoritesTableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
-        let movie = movies[indexPath.row]
+        let movie = movieAtIndexPath(indexPath)
         cell.textLabel!.text = movie.title
         cell.imageView!.image = movie.image
         return cell
@@ -32,7 +32,7 @@ class FavoriteMoviesController: UITableViewController {
     
     func loadData(){
         let realm = try! Realm()
-        movies = realm.objects(Movie)
+        movies = realm.objects(MovieItem)
         favoritesTableView.reloadData()
     }
     
@@ -41,7 +41,7 @@ class FavoriteMoviesController: UITableViewController {
             switch identifier{
             case "showFavoriteDetail":
                 let movieDetailsViewController = segue.destinationViewController as! MovieDetailsViewController
-                if let indexPath = self.tableView.indexPathForCell(sender as! UITableViewCell){
+                if let indexPath = self.favoritesTableView.indexPathForCell(sender as! UITableViewCell){
                     movieDetailsViewController.movie = movieAtIndexPath(indexPath)
                 }
             default:break
@@ -50,7 +50,22 @@ class FavoriteMoviesController: UITableViewController {
     }
     
     func movieAtIndexPath(indexPath: NSIndexPath) -> Movie{
-        let movie = movies[indexPath.row]
+        let realmMovie = movies[indexPath.row]
+        let movie = Movie()
+        
+        let url = NSURL(string: "http://image.tmdb.org/t/p/w185//" + realmMovie.imgPath!)
+        let data = NSData(contentsOfURL: url!)
+        movie.image = UIImage(data: data!)
+
+        
+        movie.id = realmMovie.id
+        movie.tagline = realmMovie.tagline
+        movie.title = realmMovie.title
+        movie.voteAverage = realmMovie.voteAverage
+        movie.overview = realmMovie.overview
+        movie.releaseDate = realmMovie.releaseDate
+        movie.posterPath = realmMovie.posterPath
+
         return movie
     }
 }

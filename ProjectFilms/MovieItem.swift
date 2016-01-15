@@ -17,5 +17,4 @@ class MovieItem: Object {
     var voteAverage: Double?
     dynamic var releaseDate: String?
     dynamic var imgPath: String?
-    dynamic var image: UIImage?
 }

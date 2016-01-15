@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import RealmSwift
 
-class Movie: Object{
+class Movie{
     var id : Int?
     var title : String?
     var overview: String?
@@ -53,31 +53,4 @@ class MovieHandler {
             completion(data: data, response: response, error: error)
             }.resume()
     }
-    
-    /*func downloadImage(url: NSURL) -> UIImage{
-        print("Download Started")
-        print("lastPathComponent: " + (url.lastPathComponent ?? ""))
-        var image = UIImage()
-        getDataFromUrl(url) { (data, response, error)  in
-            dispatch_async(dispatch_get_main_queue()) { () -> Void in
-                guard let data = data where error == nil else { return }
-                print(response?.suggestedFilename ?? "")
-                print("Download Finished")
-                image = UIImage(data: data)!
-            }
-        }
-        return image
-    }*/
-    
-    /*static func parseJsonImage(anyObj : AnyObject) -> String{
-        var imgpath = String()
-        if anyObj is [AnyObject]{
-            for var index = 0; index < anyObj.count ; ++index {
-                //file_path
-                let path = (anyObj[index]["file_path"] as AnyObject? as? String?)
-                imgpath = path!!
-            }
-        }
-        return imgpath
-    }*/
 }
