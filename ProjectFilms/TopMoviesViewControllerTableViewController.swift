@@ -26,32 +26,12 @@ class TopMoviesViewControllerTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
     
-    /*func openImage(sender: AnyObject) -> UIImage{
-        var image: UIImage = UIImage()
-        MovieService.sharedInstance.fetchImageFromMovie(550, completion: {
-            (error, data) -> () in
-            if let json_data = data?["backdrops"]{
-                self.imageString = MovieHandler.parseJsonImage(json_data!)
-                dispatch_async(dispatch_get_main_queue(), {
-                    () -> Void in
-                    //do something with the things you've received from the api
-                    //print(self.imageString[0])
-                    
-                        let url = NSURL(string:"http://image.tmdb.org/t/p/w500/\(self.imageString)")
-                        let dataImg = NSData(contentsOfURL: url!)
-                        image = UIImage(data: dataImg!)!
-                })
-            }
-        })
-        return image
-    }*/
-    
     func _loadMovies(){
         MovieService.sharedInstance.fetchTopMovies({
             (error, data) -> () in
-            if let json_data = data?["results"] {
+            if let json_data = (data?["results"] as AnyObject?) {
                 //print(MovieHandler.parseJSon(json_data!))
-                self.movies = MovieHandler.parseJSon(json_data!)
+                self.movies = MovieHandler.parseJSon(json_data)
                 dispatch_async(dispatch_get_main_queue(), {
                     () -> Void in
                     //do something with the things you've received from the api

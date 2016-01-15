@@ -8,8 +8,9 @@
 
 import Foundation
 import UIKit
+import RealmSwift
 
-struct Movie {
+class Movie: Object{
     var id : Int?
     var title : String?
     var overview: String?
@@ -27,7 +28,7 @@ class MovieHandler {
         if anyObject is [AnyObject]{
             for var index = 0; index < anyObject.count; ++index
             {
-                var object = Movie()
+                let object = Movie()
                 object.id = (anyObject[index]["id"] as AnyObject? as? Int)
                 object.title = (anyObject[index]["original_title"] as AnyObject? as? String)
                 object.overview = (anyObject[index]["overview"] as AnyObject? as? String)

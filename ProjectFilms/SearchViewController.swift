@@ -59,14 +59,11 @@ class SearchViewController: UITableViewController{
         let queryFinal = query.stringByReplacingOccurrencesOfString(" ", withString: "%20", options: NSStringCompareOptions.LiteralSearch, range: nil)
         MovieService.sharedInstance.fetchSearchMovies(queryFinal,completion: {
             (error, data) -> () in
-            if let json_data = data?["results"] {
-                if json_data != nil{
-                    self.movies = MovieHandler.parseJSon(json_data!)
+            if let json_data = (data?["results"] as AnyObject?) {
+                    self.movies = MovieHandler.parseJSon(json_data)
                     dispatch_async(dispatch_get_main_queue(), {
                         () -> Void in
                     })
-
-                }
             }
         })
     }
