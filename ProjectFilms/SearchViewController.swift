@@ -8,14 +8,34 @@
 
 import UIKit
 
-class SearchViewController: UITableViewController{
+class SearchViewController: UITableViewController, UISearchResultsUpdating{
     
     @IBOutlet var searchTableView: UITableView!
-    var movies = [Movie]()
+    var movies:[Movie] = [Movie](){
+        didSet {self.searchTableView.reloadData()}
+    }
+    let movieSearchController = UISearchController(searchResultsController: nil)
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableView.reloadData()
+        
+        searchTableView.delegate = self
+        searchTableView.dataSource = self
+        movieSearchController.searchResultsUpdater = self
+        movieSearchController.hidesNavigationBarDuringPresentation = false
+        movieSearchController.dimsBackgroundDuringPresentation = false
+        movieSearchController.searchBar.sizeToFit()
+        self.searchTableView.tableHeaderView = movieSearchController.searchBar
+        
+        self.searchTableView.reloadData()
+    }
+    
+    func updateSearchResultsForSearchController(movieSearchController: UISearchController) {
+        movies.removeAll(keepCapacity: false)
+        
+        _loadMovies(movieSearchController.searchBar.text!)
+        
+        self.searchTableView.reloadData()
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -33,27 +53,16 @@ class SearchViewController: UITableViewController{
         cell.textLabel!.text = movie.title
         return cell
     }
+    /*override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(true)
+        self.searchTableView.reloadData()
+    }*/
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         self.tableView.reloadData()
         let movie = self.movies[indexPath.row]
         print(movie.title)
-        //performSegueWithIdentifier("showDetailSearch", sender: self)
-    }
-    
-    func searchDisplayController(controller: UISearchController, shouldReloadTableForSearchString searchString: String?)  -> Bool {
-        self.tableView.reloadData()
-        _loadMovies(searchDisplayController!.searchBar.text!)
-        _loadMovies(searchString!)
-        return true
-    }
-    
-    func searchDisplayController(controller: UISearchController, shouldReloadTableForSearchScope searchOption: Int) -> Bool {
-        self.tableView.reloadData()
-        let query = searchDisplayController!.searchBar.text
-        _loadMovies(query!)
-        return true
     }
     
     func _loadMovies(query: String){
@@ -64,19 +73,18 @@ class SearchViewController: UITableViewController{
                     self.movies = MovieHandler.parseJSon(json_data)
                     dispatch_async(dispatch_get_main_queue(), {
                         () -> Void in
+                        self.searchTableView.reloadData()
                     })
             }
         })
     }
     
     func movieAtIndexPath(indexPath: NSIndexPath) -> Movie{
-        searchTableView.reloadData()
         let movie = movies[indexPath.row]
         return movie
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        //self.searchDisplayController?.searchBar.text = nil
         if let identifier = segue.identifier{
             switch identifier{
             case "showDetailSearch":

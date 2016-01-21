@@ -14,7 +14,7 @@ class MovieItem: Object {
     dynamic var overview: String?
     dynamic var tagline : String?
     dynamic var posterPath: String?
-    var voteAverage: Double?
+    dynamic var voteAverage: Double = 0.0
     dynamic var releaseDate: String?
     dynamic var imgPath: String?
 }

@@ -20,6 +20,7 @@ class Movie{
     var releaseDate: String?
     var imgPath: String?
     var image: UIImage?
+    var favorite: Bool? = false
 }
 
 class MovieHandler {

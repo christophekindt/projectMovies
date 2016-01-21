@@ -17,6 +17,12 @@ class FavoriteMoviesController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         loadData()
+        self.favoritesTableView.reloadData()
+    }
+    override func viewDidAppear(animated: Bool) {
+        //super.viewDidAppear(<#T##animated: Bool##Bool#>)
+        loadData()
+        self.favoritesTableView.reloadData()
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -33,7 +39,7 @@ class FavoriteMoviesController: UITableViewController {
     func loadData(){
         let realm = try! Realm()
         movies = realm.objects(MovieItem)
-        favoritesTableView.reloadData()
+        self.favoritesTableView.reloadData()
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -57,7 +63,6 @@ class FavoriteMoviesController: UITableViewController {
         let data = NSData(contentsOfURL: url!)
         movie.image = UIImage(data: data!)
 
-        
         movie.id = realmMovie.id
         movie.tagline = realmMovie.tagline
         movie.title = realmMovie.title

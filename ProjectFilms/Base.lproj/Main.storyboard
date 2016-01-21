@@ -31,7 +31,7 @@
         <!--Favorites-->
         <scene sceneID="zlq-dY-zwc">
             <objects>
-                <tableViewController id="pvq-6n-fZm" customClass="FavoriteMoviesController" customModule="ProjectFilms" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="favorites" id="pvq-6n-fZm" customClass="FavoriteMoviesController" customModule="ProjectFilms" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Izw-me-Acj">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -73,7 +73,7 @@
             </objects>
             <point key="canvasLocation" x="968" y="-727"/>
         </scene>
-        <!--Top Movies View Controller Table View Controller-->
+        <!--Top movies-->
         <scene sceneID="zNI-lv-DxL">
             <objects>
                 <tableViewController id="32a-Wr-0YO" customClass="TopMoviesViewControllerTableViewController" customModule="ProjectFilms" customModuleProvider="target" sceneMemberID="viewController">
@@ -109,7 +109,7 @@
                             <outlet property="delegate" destination="32a-Wr-0YO" id="ufv-H7-Aqr"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="3UZ-CQ-5tT"/>
+                    <navigationItem key="navigationItem" title="Top movies" id="3UZ-CQ-5tT"/>
                     <connections>
                         <outlet property="movieTableView" destination="ibu-TY-p6C" id="dgt-HQ-hxc"/>
                     </connections>
@@ -130,16 +130,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="05J-ws-6bP">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="05J-ws-6bP">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9hh-jl-gXn">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9hh-jl-gXn">
                                         <rect key="frame" x="67" y="74" width="185" height="277"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="277" id="YHF-QM-9Hi"/>
                                         </constraints>
                                     </imageView>
-                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="22A-wh-aJF" customClass="CosmosView" customModule="ProjectFilms" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="22A-wh-aJF" customClass="CosmosView" customModule="ProjectFilms" customModuleProvider="target">
                                         <rect key="frame" x="37" y="46" width="247" height="20"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <userDefinedRuntimeAttributes>
@@ -154,19 +154,19 @@
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="itX-ve-sqM">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="itX-ve-sqM">
                                         <rect key="frame" x="122" y="352" width="42" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jl0-bT-iyS">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jl0-bT-iyS">
                                         <rect key="frame" x="8" y="381" width="304" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Release date:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9at-9g-URU">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Release date:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9at-9g-URU">
                                         <rect key="frame" x="8" y="352" width="106" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="BlI-TV-5Hy"/>
@@ -218,16 +218,18 @@
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="favoriteIcon" destination="6eG-5E-Ior" id="E4w-ac-MXL"/>
                         <outlet property="overviewText" destination="jl0-bT-iyS" id="cT2-xq-lY7"/>
                         <outlet property="posterImage" destination="9hh-jl-gXn" id="gbg-lk-jaN"/>
                         <outlet property="ratingStars" destination="22A-wh-aJF" id="xlJ-sz-PiH"/>
                         <outlet property="releasedateLabel" destination="itX-ve-sqM" id="oQh-o1-88q"/>
+                        <outlet property="scrollviewController" destination="05J-ws-6bP" id="xN3-bb-kbf"/>
                         <outlet property="titleLabel" destination="81v-vb-2iZ" id="6n6-ug-Sgj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ujz-wh-zFc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2049" y="0.0"/>
+            <point key="canvasLocation" x="2042" y="5"/>
         </scene>
         <!--Search movies-->
         <scene sceneID="wdd-Ye-zyT">
@@ -237,17 +239,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Search movies" id="uBI-bM-prW">
-                            <rect key="frame" x="0.0" y="64" width="320" height="44"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            <textInputTraits key="textInputTraits"/>
-                            <connections>
-                                <outlet property="delegate" destination="0Jx-SE-nvH" id="PGp-19-u1L"/>
-                            </connections>
-                        </searchBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="cell" textLabel="nhj-Up-fwy" style="IBUITableViewCellStyleDefault" id="Gyw-ab-Jaa">
-                                <rect key="frame" x="0.0" y="136" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="92" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Gyw-ab-Jaa" id="YdX-Yb-7K3">
                                     <rect key="frame" x="0.0" y="0.0" width="287" height="43.5"/>
@@ -282,7 +276,6 @@
                 <searchDisplayController id="RqD-8h-CT1">
                     <connections>
                         <outlet property="delegate" destination="0Jx-SE-nvH" id="SeL-Za-V9n"/>
-                        <outlet property="searchBar" destination="uBI-bM-prW" id="Zml-Ye-Sxo"/>
                         <outlet property="searchContentsController" destination="0Jx-SE-nvH" id="qZb-tc-SYz"/>
                         <outlet property="searchResultsDataSource" destination="0Jx-SE-nvH" id="MYN-o3-OEL"/>
                         <outlet property="searchResultsDelegate" destination="0Jx-SE-nvH" id="azZ-is-Uhn"/>
@@ -291,11 +284,11 @@
             </objects>
             <point key="canvasLocation" x="928" y="829"/>
         </scene>
-        <!--Item-->
+        <!--Top movies-->
         <scene sceneID="jWi-GH-BZR">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Cgf-P8-GgK" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="QeC-KV-wZc"/>
+                    <tabBarItem key="tabBarItem" title="Top movies" image="List-50" id="QeC-KV-wZc"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ynn-3L-ky0">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -310,11 +303,11 @@
             </objects>
             <point key="canvasLocation" x="777" y="0.0"/>
         </scene>
-        <!--Item-->
+        <!--Search-->
         <scene sceneID="sSq-4M-le9">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="gjk-Cj-Jb2" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="X1L-ZM-A4E"/>
+                    <tabBarItem key="tabBarItem" title="Search" image="Search-50" id="X1L-ZM-A4E"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="omK-MX-efi">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -329,11 +322,11 @@
             </objects>
             <point key="canvasLocation" x="432" y="829"/>
         </scene>
-        <!--Item-->
+        <!--Favorites-->
         <scene sceneID="8Aa-MX-agB">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="KjF-9N-RLU" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="kUw-r0-MQA"/>
+                    <tabBarItem key="tabBarItem" title="Favorites" image="Star Filled-50" id="kUw-r0-MQA"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="gaa-3e-qP3">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -350,9 +343,12 @@
         </scene>
     </scenes>
     <resources>
+        <image name="List-50" width="25" height="25"/>
+        <image name="Search-50" width="25" height="25"/>
+        <image name="Star Filled-50" width="25" height="25"/>
         <image name="Star-50" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="urS-iB-P7T"/>
+        <segue reference="XDc-bN-sug"/>
     </inferredMetricsTieBreakers>
 </document>
