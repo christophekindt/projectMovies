@@ -10,12 +10,14 @@ import UIKit
 import RealmSwift
 
 class MovieDetailsViewController: UIViewController {
-
+    
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var ratingStars: CosmosView!
-    @IBOutlet weak var posterImage: UIImageView!
     @IBOutlet weak var releasedateLabel: UILabel!
     @IBOutlet weak var overviewText: UILabel!
+    
+    @IBOutlet weak var posterImage: UIImageView!
+    
     @IBOutlet weak var favoriteIcon: UIBarButtonItem!
     
     @IBOutlet weak var scrollviewController: UIScrollView!
